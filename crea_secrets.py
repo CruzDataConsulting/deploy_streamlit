@@ -1,3 +1,4 @@
+import streamlit as st
 import toml
 
 output_file=".streamlit/secrets.toml"
