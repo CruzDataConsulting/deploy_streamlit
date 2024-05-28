@@ -11,13 +11,16 @@
 #el nuevo codigo
 import streamlit as st
 import pandas as pd
+import firebase_admin
 from google.cloud import firestore
 from google.oauth2 import service_account
 import json
+
 key_dict = json.loads(st.secrets["textkey"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
-#db = firestore.Client(credentials=creds, project="names-project-demo")
-db = firestore.Client(credentials=creds, project="names")
+db = firestore.Client(credentials=creds, project="primera-base")
+firebase_admin.initialize_app(creds)
+#db = firestore.Client(credentials=creds, project="names")
 
 #mi linea
 #db=firestore.Client.from_service_account_json(path2+"primera-base-5bb2f-firebase-adminsdk-2ch28-b147cbc93b.json")
@@ -40,7 +43,6 @@ if index and name and sex and submit:
         "name":name,
         "sex":sex
     })
-
 st.sidebar.write("Registro añadido correctamente")
 
 # seccion de read en firebase
