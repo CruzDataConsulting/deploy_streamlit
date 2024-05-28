@@ -16,8 +16,8 @@ from google.oauth2 import service_account
 import json
 key_dict = json.loads(st.secrets["textkey"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
-#db = firestore.Client(credentials=creds, project="names-project-demo")
-db = firestore.Client(credentials=creds, project="names")
+db = firestore.Client(credentials=creds, project="names-project-demo")
+#db = firestore.Client(credentials=creds, project="names")
 
 #mi linea
 #db=firestore.Client.from_service_account_json(path2+"primera-base-5bb2f-firebase-adminsdk-2ch28-b147cbc93b.json")
@@ -44,10 +44,10 @@ if index and name and sex and submit:
 st.sidebar.write("Registro añadido correctamente")
 
 # seccion de read en firebase
-names_ref=list(db.collection(u'names').stream())
-names_dict=list(map(lambda x: x.to_dict(), names_ref))
-names_dataframe=pd.DataFrame(names_dict)
-st.dataframe(names_dataframe)
+#names_ref=list(db.collection(u'names').stream())
+#names_dict=list(map(lambda x: x.to_dict(), names_ref))
+#names_dataframe=pd.DataFrame(names_dict)
+#st.dataframe(names_dataframe)
 
 #seccion delete en firebase
 def loadByName(name):
