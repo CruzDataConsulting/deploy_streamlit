@@ -18,7 +18,7 @@ import json
 
 key_dict = json.loads(st.secrets["textkey"])
 creds = service_account.Credentials.from_service_account_info(key_dict)
-db = firestore.Client(credentials=creds, project="primera-base")
+db = firestore.Client(credentials=creds, project="primera-base-5bb2f")
 firebase_admin.initialize_app(creds)
 #db = firestore.Client(credentials=creds, project="names")
 
