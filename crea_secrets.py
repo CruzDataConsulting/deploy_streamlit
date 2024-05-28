@@ -2,6 +2,7 @@ import streamlit as st
 import toml
 
 output_file=".streamlit/secrets.toml"
+path2="C:/Users/hdcb1/deploy_streamlit/"
 
 with open("primera-base-5bb2f-firebase-adminsdk-2ch28-b147cbc93b.json") as json_file:
     json_text=json_file.read()
